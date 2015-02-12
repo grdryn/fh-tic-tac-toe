@@ -26,9 +26,23 @@ function game() {
         if (player_has_won(board, player)) {
             alert(player + " has won");
         }
+
+        if (reached_end_state(board)) {
+            alert("Game over: no more moves left");
+        }
+
         player = switch_player(player);
     });
 
+}
+
+function reached_end_state(board) {
+    for (var position = 0; position < board.length; position++) {
+        if (board[position] === "_") { // current cell placeholder is "_"
+            return false;
+        }
+    }
+    return true;
 }
 
 // Player changes after each turn
