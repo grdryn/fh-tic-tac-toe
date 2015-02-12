@@ -15,9 +15,9 @@ var generic_winning_sequences = new Array(
         "001010100"// bottom left to top right
 );
 
-function game() {
+var player = "X"; // first player gets to be X
 
-    var player = "X"; // first player gets to be X
+function game() {
 
     // Basic click handler to change to X or O depending on player
     $(".game-cell").click(function() {
@@ -26,13 +26,12 @@ function game() {
 
         if (player_has_won(board, player)) {
             $("#game_status").text(player + " has won!");
-        }
-
-        if (reached_end_state(board)) {
+        } else if (reached_end_state(board)) {
             $("#game_status").text("Game over: no more moves left");
+        } else {
+            player = switch_player(player);
+            $("#game_status").text(player + " to play");
         }
-
-        player = switch_player(player);
     });
 
 }
@@ -41,7 +40,8 @@ function restart() {
     for (var pos = 0; pos < boardIds.length; pos++) {
         $("#" + boardIds[pos]).text("_");
     }
-    $("#game_status").text("");
+    player = "X";
+    $("#game_status").text("X to play");
 }
 
 function reached_end_state(board) {
