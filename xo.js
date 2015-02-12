@@ -4,6 +4,16 @@ var boardIds = new Array(
         "colarow3", "colbrow3", "colcrow3"
 );
 
+var generic_winning_sequences = new Array(
+        "100100100", // left side vertical
+        "010010010", // middle vertical
+        "001001001", // right side verticle
+        "111000000", // top horizontal
+        "000111000", // mid horizontal
+        "000000111", // bottom horizontal
+        "100010001", // top left to bottom right
+        "001010100"// bottom right to top left
+);
 
 function game() {
 
@@ -12,6 +22,9 @@ function game() {
     // Basic click handler to change to X or O depending on player
     $(".game-cell").click(function() {
         $(this).text(player);
+        if (isGameOver(player)) {
+            alert(player + " has won");
+        }
         player = switch_player(player);
     });
 
@@ -34,4 +47,30 @@ function getBoardValues() {
         values[index] = $("#" + boardIds[index]).text();
     }
     return values;
+}
+
+function get_player_moves(board_values, player) {
+    var player_sequence = ""
+    for (var position = 0; position < board_values.length; position++) {
+        if (board_values[position] === player) {
+            player_sequence += "1";
+        } else {
+            player_sequence += "0";
+        }
+    }
+    return player_sequence;
+}
+
+//returns true if a winning sequence is reached
+function isGameOver(player) {
+    var player_has_won = false;
+    var board_values = getBoardValues();
+    player_sequence = get_player_moves(board_values, player);
+
+    for (var index = 0; index < generic_winning_sequences.length; index++) {
+        if (generic_winning_sequences[index] == player_sequence) {
+            player_has_won = true;
+        }
+    }
+    return player_has_won;
 }
