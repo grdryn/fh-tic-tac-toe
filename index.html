@@ -9,24 +9,27 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript"
     src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="xo.js"></script>
 </head>
-<body>
+<body onload="game()">
     <div data-role="page" id="page1">
         <div data-role="header">
             <h1>Tic Tac Toe</h1>
         </div>
 
         <div class="ui-grid-b">
-            <div id="colarow1" class="ui-block-a ui-btn ui-corner-all">a1</div>
-            <div id="colbrow1" class="ui-block-b ui-btn ui-corner-all">b1</div>
-            <div id="colcrow1" class="ui-block-c ui-btn ui-corner-all">c1</div>
-            <div id="colarow2" class="ui-block-a ui-btn ui-corner-all">a2</div>
-            <div id="colbrow2" class="ui-block-b ui-btn ui-corner-all">b2</div>
-            <div id="colcrow2" class="ui-block-c ui-btn ui-corner-all">c2</div>
-            <div id="colarow3" class="ui-block-a ui-btn ui-corner-all">a3</div>
-            <div id="colbrow3" class="ui-block-b ui-btn ui-corner-all">b3</div>
-            <div id="colcrow3" class="ui-block-c ui-btn ui-corner-all">c3</div>
+            <div id="colarow1" class="ui-block-a ui-btn ui-corner-all game-cell">a1</div>
+            <div id="colbrow1" class="ui-block-b ui-btn ui-corner-all game-cell">b1</div>
+            <div id="colcrow1" class="ui-block-c ui-btn ui-corner-all game-cell">c1</div>
+            <div id="colarow2" class="ui-block-a ui-btn ui-corner-all game-cell">a2</div>
+            <div id="colbrow2" class="ui-block-b ui-btn ui-corner-all game-cell">b2</div>
+            <div id="colcrow2" class="ui-block-c ui-btn ui-corner-all game-cell">c2</div>
+            <div id="colarow3" class="ui-block-a ui-btn ui-corner-all game-cell">a3</div>
+            <div id="colbrow3" class="ui-block-b ui-btn ui-corner-all game-cell">b3</div>
+            <div id="colcrow3" class="ui-block-c ui-btn ui-corner-all game-cell">c3</div>
         </div>
+
     </div>
 </body>
 </html>
