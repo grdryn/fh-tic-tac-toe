@@ -17,7 +17,6 @@
         <div data-role="header">
             <h1>Tic Tac Toe</h1>
         </div>
-
         <div class="ui-grid-b">
             <div id="colarow1" class="ui-block-a ui-btn ui-corner-all game-cell">_</div>
             <div id="colbrow1" class="ui-block-b ui-btn ui-corner-all game-cell">_</div>
@@ -28,6 +27,11 @@
             <div id="colarow3" class="ui-block-a ui-btn ui-corner-all game-cell">_</div>
             <div id="colbrow3" class="ui-block-b ui-btn ui-corner-all game-cell">_</div>
             <div id="colcrow3" class="ui-block-c ui-btn ui-corner-all game-cell">_</div>
+        </div>
+
+        <div data-role="footer" id="footer-1" class="ui-bar">
+            <span class="ui-title" id="game_status"></span>
+            <a href="#page1" class="ui-btn ui-mini ui-corner-all ui-icon-refresh ui-btn-icon-left ui-btn-right" id="restart_btn" onclick="restart()">Restart</a>
         </div>
 
     </div>

@@ -25,16 +25,23 @@ function game() {
         var board = getBoardValues();
 
         if (player_has_won(board, player)) {
-            alert(player + " has won");
+            $("#game_status").text(player + " has won!");
         }
 
         if (reached_end_state(board)) {
-            alert("Game over: no more moves left");
+            $("#game_status").text("Game over: no more moves left");
         }
 
         player = switch_player(player);
     });
 
+}
+
+function restart() {
+    for (var pos = 0; pos < boardIds.length; pos++) {
+        $("#" + boardIds[pos]).text("_");
+    }
+    $("#game_status").text("");
 }
 
 function reached_end_state(board) {
