@@ -12,7 +12,7 @@ var generic_winning_sequences = new Array(
         "000111000", // mid horizontal
         "000000111", // bottom horizontal
         "100010001", // top left to bottom right
-        "001010100"// bottom right to top left
+        "001010100"// bottom left to top right
 );
 
 function game() {
@@ -21,8 +21,9 @@ function game() {
 
     // Basic click handler to change to X or O depending on player
     $(".game-cell").click(function() {
-        $(this).text(player);
+        $(this).text(player); // Set text of clicked position to X or O
         var board = getBoardValues();
+
         if (player_has_won(board, player)) {
             alert(player + " has won");
         }
