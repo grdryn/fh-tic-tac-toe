@@ -22,7 +22,8 @@ function game() {
     // Basic click handler to change to X or O depending on player
     $(".game-cell").click(function() {
         $(this).text(player);
-        if (isGameOver(player)) {
+        var board = getBoardValues();
+        if (player_has_won(board, player)) {
             alert(player + " has won");
         }
         player = switch_player(player);
@@ -62,10 +63,9 @@ function get_player_moves(board_values, player) {
 }
 
 //returns true if a winning sequence is reached
-function isGameOver(player) {
+function player_has_won(board, player) {
     var player_has_won = false;
-    var board_values = getBoardValues();
-    player_sequence = get_player_moves(board_values, player);
+    var player_sequence = get_player_moves(board, player);
 
     for (var index = 0; index < generic_winning_sequences.length; index++) {
         if (generic_winning_sequences[index] == player_sequence) {
